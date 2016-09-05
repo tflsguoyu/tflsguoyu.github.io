@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.13)  6 JUN 2016 00:09
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.4)  4 SEP 2016 17:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -328,7 +328,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 248.
  ) 
 Here is how much of TeX's memory you used:
  5019 strings out of 493304
- 73448 string characters out of 6139871
+ 73448 string characters out of 6139872
  160076 words of memory out of 5000000
  8490 multiletter control sequences out of 15000+600000
  6121 words of font info for 22 fonts, out of 8000000 for 9000
@@ -342,7 +342,7 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmsy10.pfb>
-Output written on GUOYU_CV.pdf (2 pages, 117774 bytes).
+Output written on GUOYU_CV.pdf (2 pages, 117767 bytes).
 PDF statistics:
  77 PDF objects out of 1000 (max. 8388607)
  64 compressed objects within 1 object stream
