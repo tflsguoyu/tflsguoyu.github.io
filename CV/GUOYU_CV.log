@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.4)  4 SEP 2016 17:09
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.4)  16 SEP 2016 15:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -273,67 +273,72 @@ Underfull \hbox (badness 10000) in paragraph at lines 113--116
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--122
+
+ []
+
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 126--129
+Underfull \hbox (badness 10000) in paragraph at lines 132--135
 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 134.
+(Font)              <7> on input line 140.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 134.
+(Font)              <5> on input line 140.
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--141
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 141--150
+Underfull \hbox (badness 10000) in paragraph at lines 140--147
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--161
+Underfull \hbox (badness 10000) in paragraph at lines 147--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--186
+Underfull \hbox (badness 10000) in paragraph at lines 165--167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--193
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 204--207
+Underfull \hbox (badness 10000) in paragraph at lines 195--199
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 229--232
+Underfull \hbox (badness 10000) in paragraph at lines 210--213
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 248.
+
+Underfull \hbox (badness 10000) in paragraph at lines 235--238
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 254.
 [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 248.
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 248.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 248.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 248.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 254.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 254.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 254.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 254.
  ) 
 Here is how much of TeX's memory you used:
  5019 strings out of 493304
  73448 string characters out of 6139872
- 160076 words of memory out of 5000000
+ 161076 words of memory out of 5000000
  8490 multiletter control sequences out of 15000+600000
  6121 words of font info for 22 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 29i,12n,43p,264b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,11n,43p,264b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
@@ -342,7 +347,7 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmsy10.pfb>
-Output written on GUOYU_CV.pdf (2 pages, 117767 bytes).
+Output written on GUOYU_CV.pdf (2 pages, 118497 bytes).
 PDF statistics:
  77 PDF objects out of 1000 (max. 8388607)
  64 compressed objects within 1 object stream
