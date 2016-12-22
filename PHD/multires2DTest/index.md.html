@@ -2,8 +2,6 @@
 
 	**Multires 2D Test**
 	*Guo Yu*
-	*update on: 2016.12.17*
-
 
 **Problem:** When rendering a down-sampled high-resolution volumetric data, the appearance looks different from original high-res data. It will lose intrinsic shadowing structure and brighten the appearance.
 
@@ -11,60 +9,149 @@
 
 Now we just consider a 2D slice from a 3D volumetric data.
 
-Initial Model (Distribution of $\sigma_T$)
+2016.12.22
 ===
 Here we generate some 2D cases (2D matrix with dimension of $256 \times 256$), each pixel stores a single value according to the color-map.
 
 Assume light source is top surface and we will observe the scattering effect only from top surface.
 
+Here we use "4 to 1" strategy to down-sample the initial models to lower resolutions. 
 
-Horizontal Randomized 0/1 
+**Top image**:
+
+- In first row, it shows down-sampled models: $(1 \times)^2$ $\rightarrow$ $(2 \times)^2$ $\rightarrow$ $(4 \times)^2$ $\rightarrow$ $(8 \times)^2$ $\rightarrow$ $(16 \times)^2$ 
+
+- Corresponding **Fourier Transforms** are shown on second row. If the input is a rectangle, cut a square to do FFT. 
+
+- The relations between **Frequency Energy Percentage** and **Window Size** are shown on the last row.
+
+For each down-sampled input, we are trying to find the appropriate albedo which make it has the same appearance of brightness with original input.
+
+Monte Carlo Samples: $1,000,000$
+
+**Bottom two images**:
+
+- **Left**: different albedo (1,0.9,0.8,0.7,0.6) for initial model. ($Scale = 1$)
+
+- **Right**: different scales (1,2,4,8,16) with same albedo ($\alpha = 0.95$) in initial model.  
+
+
+Horizontal Randomized 0/1 (tile = 10)
 ---
+![*Click to see full image*](results/figure-rand-tile10-1.png width=\pagewidth)
+![*Click to see full image*](results/figure-rand-tile10-2.png width=200) ![](results/figure-rand-tile10-3.png width=200)
+
+Horizontal 0~1 (tile = 10)
+---
+![*Click to see full image*](results/figure-horizontal-tile10-1.png width=\pagewidth)
+![*Click to see full image*](results/figure-horizontal-tile10-2.png width=200) ![](results/figure-horizontal-tile10-3.png width=200)
+
+Diagonal 0~1 (tile = 10)
+---
+![*Click to see full image*](results/figure-diagonal-tile10-1.png width=\pagewidth)
+![*Click to see full image*](results/figure-diagonal-tile10-2.png width=200) ![](results/figure-diagonal-tile10-3.png width=200)
+
+Wool (tile = 1)
+---
+![*Click to see full image*](results/figure-wool-tile1-1.png width=\pagewidth)
+![*Click to see full image*](results/figure-wool-tile1-2.png width=200) ![](results/figure-wool-tile1-3.png width=200)
+
+Wool remove empty (tile = 1)
+---
+![*Click to see full image*](results/figure-wool_edit-tile1-1.png width=\pagewidth)
+![*Click to see full image*](results/figure-wool_edit-tile1-2.png width=200) ![](results/figure-wool_edit-tile1-3.png width=200)
+
+
+Wool (tile = 5)
+---
+![*Click to see full image*](results/figure-wool-tile5-1.png width=\pagewidth)
+![*Click to see full image*](results/figure-wool-tile5-2.png width=200) ![](results/figure-wool-tile5-3.png width=200)
+
+Wool remove empty (tile = 5)
+---
+![*Click to see full image*](results/figure-wool_edit-tile5-1.png width=\pagewidth)
+![*Click to see full image*](results/figure-wool_edit-tile5-2.png width=200) ![](results/figure-wool_edit-tile5-3.png width=200)
+
+
+Silk (tile = 1)
+---
+![*Click to see full image*](results/figure-silk-tile1-1.png width=\pagewidth)
+![*Click to see full image*](results/figure-silk-tile1-2.png width=200) ![](results/figure-silk-tile1-3.png width=200)
+
+Silk remove empty (tile = 1)
+---
+![*Click to see full image*](results/figure-silk_edit-tile1-1.png width=\pagewidth)
+![*Click to see full image*](results/figure-silk_edit-tile1-2.png width=200) ![](results/figure-silk_edit-tile1-3.png width=200)
+
+
+Silk (tile = 5)
+---
+![*Click to see full image*](results/figure-silk-tile5-1.png width=\pagewidth)
+![*Click to see full image*](results/figure-silk-tile5-2.png width=200) ![](results/figure-silk-tile5-3.png width=200)
+
+Silk remove empty (tile = 5)
+---
+![*Click to see full image*](results/figure-silk_edit-tile5-1.png width=\pagewidth)
+![*Click to see full image*](results/figure-silk_edit-tile5-2.png width=200) ![](results/figure-silk_edit-tile5-3.png width=200)
+
+
+2016.12.19
+===
+
+Initial Model (Distribution of $\sigma_T$)
+---
+Here we generate some 2D cases (2D matrix with dimension of $256 \times 256$), each pixel stores a single value according to the color-map.
+
+Assume light source is top surface and we will observe the scattering effect only from top surface.
+
+
+Horizontal Randomized 0/1
+
 ![*Click to see full image*](results/figure1-1.png width=300)
 
-Horizontal Ordered 1~0 
----
+Horizontal Ordered 1~0
+
 ![*Click to see full image*](results/figure1-2.png width=300)
 
 Diagonal Ordered 1~0 
----
+
 ![*Click to see full image*](results/figure1-3.png width=300)
 
-Horizontal Ordered 1~0 (Sparse) 
----
+Horizontal Ordered 1~0 (Sparse)
+
 ![*Click to see full image*](results/figure1-4.png width=300)
 
 Diagonal Ordered 1~0 (Sparse)
----
+
 ![*Click to see full image*](results/figure1-5.png width=300)
 
 Silk 1
----
+
 ![*Click to see full image*](results/figure1-silk1.png width=300)
 
 Silk 2
----
+
 ![*Click to see full image*](results/figure1-silk2.png width=300)
 
 Silk 3
----
+
 ![*Click to see full image*](results/figure1-silk3.png width=100)
 
 Wool 1
----
+
 ![*Click to see full image*](results/figure1-wool1.png width=300)
 
 Wool 2
----
+
 ![*Click to see full image*](results/figure1-wool2.png width=300)
 
 Wool 3
----
+
 ![*Click to see full image*](results/figure1-wool3.png width=300)
 
 
 Down-sampled Model
-===
+---
 Here we use "4 to 1" strategy to down-sample the initial models to lower resolutions. 
 
 In first row, it shows down-sampled models:
@@ -75,51 +162,51 @@ Corresponding **Fourier Transforms** are shown on second row.
 The relations between **Frequency Energy Percentage** and **Window Size** are shown on the last row.
 
 Horizontal Randomized 0/1 
----
+
 ![*Click to see full image*](results/figure2-1.png width=\pagewidth)
 
 Horizontal Ordered 1~0 
----
+
 ![*Click to see full image*](results/figure2-2.png width=\pagewidth)
 
 Diagonal Ordered 1~0 
----
+
 ![*Click to see full image*](results/figure2-3.png width=\pagewidth)
 
 Horizontal Ordered 1~0 (Sparse)
----
+
 ![*Click to see full image*](results/figure2-4.png width=\pagewidth)
 
 Diagonal Ordered 1~0 (Sparse)
----
+
 ![*Click to see full image*](results/figure2-5.png width=\pagewidth)
 
 Silk 1
----
+
 ![*Click to see full image*](results/figure2-silk1.png width=\pagewidth)
 
 Silk 2
----
+
 ![*Click to see full image*](results/figure2-silk2.png width=\pagewidth)
 
 Silk 3
----
+
 ![*Click to see full image*](results/figure2-silk3.png width=\pagewidth)
 
 Wool 1
----
+
 ![*Click to see full image*](results/figure2-wool1.png width=\pagewidth)
 
 Wool 2
----
+
 ![*Click to see full image*](results/figure2-wool2.png width=\pagewidth)
 
 Wool 3
----
+
 ![*Click to see full image*](results/figure2-wool3.png width=\pagewidth)
 
 Albedo Optimization
-===
+---
 For each down-sampled input, we are trying to find the appropriate albedo which make it has the same appearance of brightness with original input.
 
 Monte Carlo Samples: 1,000,000
@@ -130,48 +217,48 @@ Monte Carlo Samples: 1,000,000
 
 
 Horizontal Randomized 0/1 
----
+
 ![*Click to see full image*](results/figure3-1-1.png width=\pagewidth) ![](results/figure3-1-2.png width=\pagewidth)
 
 Horizontal Ordered 1~0 
----
+
 ![*Click to see full image*](results/figure3-2-1.png width=\pagewidth) ![](results/figure3-2-2.png width=\pagewidth) ![](results/figure13-2-1.png width=\pagewidth) ![](results/figure13-2-2.png width=\pagewidth)
 
 Diagonal Ordered 1~0 
----
+
 ![*Click to see full image*](results/figure3-3-1.png width=\pagewidth) ![](results/figure3-3-2.png width=\pagewidth) ![](results/figure13-3-1.png width=\pagewidth) ![](results/figure13-3-2.png width=\pagewidth)
 
 Horizontal Ordered 1~0 (Sparse)
----
+
 ![*Click to see full image*](results/figure3-4-1.png width=\pagewidth) ![](results/figure3-4-2.png width=\pagewidth) ![](results/figure13-4-1.png width=\pagewidth) ![](results/figure13-4-2.png width=\pagewidth)
 
 Diagonal Ordered 1~0 (Sparse)
----
+
 ![*Click to see full image*](results/figure3-5-1.png width=\pagewidth) ![](results/figure3-5-2.png width=\pagewidth) ![](results/figure13-5-1.png width=\pagewidth) ![](results/figure13-5-2.png width=\pagewidth)
 
 
 Silk 1
----
+
 ![*Click to see full image*](results/figure3-silk1-1.png width=\pagewidth) ![](results/figure3-silk1-2.png width=\pagewidth)
 
 Silk 2
----
+
 ![*Click to see full image*](results/figure3-silk2-1.png width=\pagewidth) ![](results/figure3-silk2-2.png width=\pagewidth)
 
 Silk 3
----
+
 ![*Click to see full image*](results/figure3-silk3-1.png width=\pagewidth) ![](results/figure3-silk3-2.png width=\pagewidth)
 
 Wool 1
----
+
 ![*Click to see full image*](results/figure3-wool1-1.png width=\pagewidth) ![](results/figure3-wool1-2.png width=\pagewidth)
 
 Wool 2
----
+
 ![*Click to see full image*](results/figure3-wool2-1.png width=\pagewidth) ![](results/figure3-wool2-2.png width=\pagewidth)
 
 Wool 3
----
+
 ![*Click to see full image*](results/figure3-wool3-1.png width=\pagewidth) ![](results/figure3-wool3-2.png width=\pagewidth)
 
 
