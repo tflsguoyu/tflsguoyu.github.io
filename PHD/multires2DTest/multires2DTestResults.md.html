@@ -1,0 +1,45 @@
+<meta charset="utf-8" emacsmode="-*- markdown -*-">
+
+	**Multires 2D Test**
+	*Guo Yu*
+
+**Problem:** When rendering a down-sampled high-resolution volumetric data, the appearance looks different from original high-res data. It will lose intrinsic shadowing structure and brighten the appearance.
+
+**TO DO:** Here we are using scattering albedo to control the brightness of appearance. Trying to find the relationship between down-sample parameters (e.g down-sample scales, std of $\sigma_T$, frequency domain of $\sigma_T$) and albedo values ($\alpha$). 
+
+Now we just consider a 2D slice from a 3D volumetric data.
+
+2017.01.29
+===
+Two Different Albedo with two different $\sigma_T$
+---
+![Left part: $\alpha = 0.95$; right part: $\alpha = 0.65$](results0129/combine2/sigT.png width=\pagewidth)
+![](results0129/combine2/refl_each.png width=\pagewidth) ![](results0129/combine2/refl_all.png width=\pagewidth)
+![](results0129/combine2/refl_optimize_each.png width=\pagewidth) ![](results0129/combine2/albedo_optimize.png width=\pagewidth)
+
+
+Albedo Clustering
+---
+![](results0129/albedoLeft/sigT.png width=\pagewidth) ![](results0129/albedoRight/sigT.png width=\pagewidth)
+
+![](results0129/albedoLeft/refl_each.png width=\pagewidth) ![](results0129/albedoRight/refl_each.png width=\pagewidth)
+
+![](results0129/albedoLeft/refl_optimize_each.png width=\pagewidth) ![](results0129/albedoRight/refl_optimize_each.png width=\pagewidth)
+
+
+Frequency Clustering
+---
+![](results0129/freqLeft/sigT.png width=\pagewidth) ![](results0129/freqRight/sigT.png width=\pagewidth)
+
+![](results0129/freqLeft/refl_each.png width=\pagewidth) ![](results0129/freqRight/refl_each.png width=\pagewidth)
+
+![](results0129/freqLeft/refl_optimize_each.png width=\pagewidth) ![](results0129/freqRight/refl_optimize_each.png width=\pagewidth)
+
+
+End.
+
+<!-- Markdeep: -->
+<style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>
+<script src="markdeep.min.js"></script>
+<script src="https://casual-effects.com/markdeep/latest/markdeep.min.js"></script>
+<script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
