@@ -9,31 +9,102 @@
 
 Now we just consider a 2D slice from a 3D volumetric data.
 
-2017.01.29
+2017.01.29 (Why to choose frequency)
 ===
 Two Different Albedo with two different $\sigma_T$
 ---
 ![Left part: $\alpha = 0.95$; right part: $\alpha = 0.65$](results0129/combine2/sigT.png width=\pagewidth)
-![](results0129/combine2/refl_each.png width=\pagewidth) ![](results0129/combine2/refl_all.png width=\pagewidth)
-![](results0129/combine2/refl_optimize_each.png width=\pagewidth) ![](results0129/combine2/albedo_optimize.png width=\pagewidth)
+![Before optimize](results0129/combine2/refl_each.png width=\pagewidth) ![Reflectance](results0129/combine2/refl_all.png width=\pagewidth)
+![After optimize](results0129/combine2/refl_optimize_each.png width=\pagewidth) ![Albedo changing scale](results0129/combine2/albedo_optimize.png width=\pagewidth)
 
 
 Albedo Clustering
 ---
-![](results0129/albedoLeft/sigT.png width=\pagewidth) ![](results0129/albedoRight/sigT.png width=\pagewidth)
+![High Albedo cluster](results0129/albedoLeft/sigT.png width=\pagewidth) ![Low Albedo cluster](results0129/albedoRight/sigT.png width=\pagewidth)
 
-![](results0129/albedoLeft/refl_each.png width=\pagewidth) ![](results0129/albedoRight/refl_each.png width=\pagewidth)
+![Before optimize](results0129/albedoLeft/refl_each.png width=\pagewidth) ![](results0129/albedoRight/refl_each.png width=\pagewidth)
 
-![](results0129/albedoLeft/refl_optimize_each.png width=\pagewidth) ![](results0129/albedoRight/refl_optimize_each.png width=\pagewidth)
+![After optimize](results0129/albedoLeft/refl_optimize_each.png width=\pagewidth) ![](results0129/albedoRight/refl_optimize_each.png width=\pagewidth)
 
 
 Frequency Clustering
 ---
-![](results0129/freqLeft/sigT.png width=\pagewidth) ![](results0129/freqRight/sigT.png width=\pagewidth)
+![High frequency cluster](results0129/freqLeft/sigT.png width=\pagewidth) ![Low frequency cluster](results0129/freqRight/sigT.png width=\pagewidth)
 
-![](results0129/freqLeft/refl_each.png width=\pagewidth) ![](results0129/freqRight/refl_each.png width=\pagewidth)
+![Before optimize](results0129/freqLeft/refl_each.png width=\pagewidth) ![](results0129/freqRight/refl_each.png width=\pagewidth)
 
-![](results0129/freqLeft/refl_optimize_each.png width=\pagewidth) ![](results0129/freqRight/refl_optimize_each.png width=\pagewidth)
+![After optimize](results0129/freqLeft/refl_optimize_each.png width=\pagewidth) ![](results0129/freqRight/refl_optimize_each.png width=\pagewidth)
+
+
+2017.01.25 (How Albedo and frequency affect each other)
+===
+
+Similar frequency of $\sigma_T$, same Albedo
+---
+![Albedo = 0.95](results0125/sigT_rand.png width=\pagewidth)
+![](results0125/albedo_same/refl_rand_each.png width=\pagewidth) ![](results0125/albedo_same/refl_rand_all.png width=\pagewidth)
+
+Different frequency of $\sigma_T$, same Albedo
+---
+![Albedo = 0.95](results0125/sigT_combine1.png width=\pagewidth)
+![Blue $\rightarrow$ Red: High $f$ $\rightarrow$ Low $f$](results0125/albedo_same/refl_combine1_each.png width=\pagewidth) ![](results0125/albedo_same/refl_combine1_all.png width=\pagewidth)
+
+Similar frequency of $\sigma_T$, different Albedo
+---
+![Albedo: 0.975 $\rightarrow$ 0.5](results0125/sigT_rand.png width=\pagewidth)
+![Blue $\rightarrow$ Red: Large $\alpha$ $\rightarrow$ small $\alpha$](results0125/albedo_diff/refl_rand_each.png width=\pagewidth) ![](results0125/albedo_diff/refl_rand_all.png width=\pagewidth)
+
+Different frequency of $\sigma_T$, different Albedo
+---
+![Albedo: 0.975 $\rightarrow$ 0.5](results0125/sigT_combine1.png width=\pagewidth)
+![Blue $\rightarrow$ Red: Large $\alpha$ $\rightarrow$ small $\alpha$](results0125/albedo_diff/refl_combine1_each.png width=\pagewidth) ![](results0125/albedo_diff/refl_combine1_all.png width=\pagewidth)
+
+
+2017.01.23 (Compare scattering result w/o Next Event)
+===
+![Red: with Next Event](results0123/rand_moreSample.png width=\pagewidth) 
+
+
+2017.01.03 (Observe rendering issue from downsample data)
+===
+Rand
+---
+![](results0103/rand1.png width=\pagewidth)
+![](results0103/rand2.png width=\pagewidth) ![](results0103/rand3.png width=\pagewidth) 
+
+Wool
+---
+![](results0103/wool1.png width=\pagewidth)
+![](results0103/wool2.png width=\pagewidth) ![](results0103/wool3.png width=\pagewidth)
+
+Silk
+---
+![](results0103/silk1.png width=\pagewidth)
+![](results0103/silk2.png width=\pagewidth) ![](results0103/silk3.png width=\pagewidth) 
+
+
+2017.01.02 (How density scaler and sample numbers affect result)
+===
+[re-generate some results]
+
+
+2016.12.19 (Input data)
+===
+
+Random Barcode 
+---
+![](results/figure1-1.png width=300)
+
+
+Silk
+---
+![](results/figure1-silk3.png width=200)
+
+Wool
+---
+![](results/figure1-wool1.png width=300)
+
+
 
 
 End.
