@@ -1,0 +1,87 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, title, author, pub,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, 
+img, ins, kbd, q, s, samp, small, strike, strong, sub, tt, var, b, u, i, 
+center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, 
+tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; 
+font-size: 100%; vertical-align: baseline; background: transparent; } body { 
+line-height: 1; } ol, ul { list-style: none; } blockquote, q { quotes: none; } 
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: 
+none; } :focus { outline: 0; } ins { text-decoration: none; } del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+
+html {
+	font-size: 62.5%; 
+	height: 100%;
+}
+
+body {
+	background: #FFFFFF;
+	color: #000000;
+	font: normal 1.2em Georgia,sans-serif;
+	height: 100%;
+	padding-bottom: 1px; 
+}
+
+p {
+	font: normal 1.2em Georgia,sans-serif;
+	line-height: 1.4em;
+	padding: 0.2em 0 1.2em;
+}
+
+h1 {font: bold 3em Georgia,sans-serif;}
+h2 {font: bold 2.2em Georgia,sans-serif;}
+h3 {font: bold 2em Georgia,sans-serif;}
+h4 {font: bold 1.8em Georgia,sans-serif;}
+h5 {font: bold 1.4em Georgia,sans-serif;}
+h6 {font: bold 1.2em Georgia,sans-serif;}
+
+h1,h2,h3,h4,h5,h6 {margin-bottom: 0.2em;}
+
+a {color: #543;}
+a:hover {
+	color: #C40;
+	text-decoration: underline;
+}
+
+img.bordered {
+	background-color: #FFF;
+	border: 1px solid #DDD;
+	padding: 3px;
+}
+
+img.left {margin: 0 15px 12px 0; float: left;}
+
+.center_wrapper {
+	margin: 0 auto;
+	width: 855px;
+}
+
+#navigation li {display: inline;}
+#navigation a {
+	color: gray;
+	font: bold 1.5em Georgia;
+	margin-right: 10px;
+	text-decoration: none;
+}
+#navigation li.current_page_item a {
+	color: black;
+}
+
+div.abs2 {
+    width: 100%;
+    border-radius: 5px;
+    background: lightgray;
+    padding: 5px 8px 5px 8px;
+    margin-bottom: 16px;
+    text-align: justify;
+    display: none;
+}
+
+.anchor {
+    display: block;
+    visibility: hidden;
+    position: relative;
+    top: -152px;
+    clear: both;
+}
