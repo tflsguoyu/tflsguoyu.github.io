@@ -91,6 +91,25 @@
 			<h5>Publications:</h5>
 
 <!-- seperate line -->
+			<img src="webpage/image/2022SigAsia.jpg" width="200" height="100" alt="" class="left bordered"/>
+			<p>
+				<b>Woven Fabric Capture from a Single Photo</b>  
+				<br>
+				Wenhua Jin, Beibei Wang, Miloš Hašan, Yu Guo, Steve Marschner, Lingqi Yan
+				<br>
+				<i>SIGGRAPH Asia 2022</i>
+				<br>
+				[<a href="javascript:;" onclick="myFun('abs_2022SigAsia');">abstract</a>]
+				[<a href="webpage/pdf/2022SigAsia.pdf" target="_blank">paper</a>]
+				[<a href="" target="_blank">project page</a>]
+			</p>	
+			<div id="abs_2022SigAsia" class="abs2" style="display:none;">
+				Digitally reproducing the appearance of woven fabrics is important in many applications of realistic rendering, from interior scenes to virtual characters. However, designing realistic shading models and capturing real fabric samples are both challenging tasks. Previous work ranges from applying generic shading models not meant for fabrics, to data-driven approaches scanning fabrics requiring expensive setups and large data. In this paper, we propose a woven fabric material model and a parameter estimation approach for it. Our lightweight forward shading model treats yarns as bent and twisted cylinders, shading these using a microflake-based bidirectional reflectance distribution function (BRDF) model. We propose a simple fabric capture configuration, wrapping the fabric sample on a cylinder of known radius and capturing a single image under known camera and light positions. Our inverse rendering pipeline consists of a neural network to estimate initial fabric parameters and an optimization based on differentiable rendering to refine the results. Our fabric parameter estimation achieves high-quality recovery of measured woven fabric samples, which can be used for efficient rendering and further edited.
+			</div>
+			<div class="anchor"></div>
+
+
+<!-- seperate line -->
 			<img src="webpage/image/2021TOG.jpg" width="200" height="100" alt="" class="left bordered"/>
 			<p>
 				<b>Beyond Mie Theory: Systematic Computation of Bulk Scattering Parameters based on Microphysical Wave Optics</b>  
@@ -100,8 +119,8 @@
 				<i>ACM Transactions on Graphics (SIGGRAPH Asia 2021), 2021</i>
 				<br>
 				[<a href="javascript:;" onclick="myFun('abs_2021TOG');">abstract</a>]
-				[<a href="webpage/pdf/2021TOG.pdf" target="_blank">paper</a>]
-				[<a href="https://github.com/tflsguoyu/waveoptics" target="_blank">code</a>]
+				[<a href="https://github.com/tflsguoyu/beyondmie_paper/blob/master/beyondmie.pdf" target="_blank">paper</a>]
+				[<a href="https://github.com/tflsguoyu/beyondmie" target="_blank">project page (including code)</a>]
 			</p>	
 			<div id="abs_2021TOG" class="abs2" style="display:none;">
 				Light scattering in participating media and translucent materials is typically modeled using the radiative transfer theory. Under the assumption of independent scattering between particles, it utilizes several bulk scattering parameters to statistically characterize light-matter interactions at the macroscale. To calculate these parameters based on microscale material properties, the Lorenz-Mie theory has been considered the gold standard. In this paper, we present a generalized framework capable of systematically and rigorously computing bulk scattering parameters beyond the far-field assumption of Lorenz-Mie theory. Our technique accounts for microscale wave-optics effects such as diffraction and interference as well as interactions between nearby particles. Our framework is general, can be plugged in any renderer supporting Lorenz-Mie scattering, and allows arbitrary packing rates and particles correlation; we demonstrate this generality by computing bulk scattering parameters for a wide range of materials, including anisotropic and correlated media.
@@ -120,10 +139,6 @@
 				[<a href="javascript:;" onclick="myFun('abs_2020TOG');">abstract</a>]
 				[<a href="https://github.com/tflsguoyu/materialgan_paper/blob/master/materialgan.pdf" target="_blank">paper</a>]
 				[<a href="https://github.com/tflsguoyu/materialgan" target="_blank">project page (including code)</a>]
-<!-- 				[<a href="webpage/suppl/2020TOG/index.html" target="_blank">suppl</a>]
-				[<a href="https://youtu.be/fD6CTb1DlbE" target="_blank">fastforward</a>]
-				[<a href="https://youtu.be/CrAoVsJf0Zw" target="_blank">presentation</a>]
-				[<a href="webpage/pdf/2020TOG_main.pptx" target="_blank">slides</a>] -->
 			</p>	
 			<div id="abs_2020TOG" class="abs2" style="display:none;">
 				We address the problem of reconstructing spatially-varying BRDFs from a small set of image measurements. This is a fundamentally under-constrained problem, and previous work has relied on using various regularization priors or on capturing many images to produce plausible results. In this work, we present MaterialGAN, a deep generative convolutional network based on StyleGAN2, trained to synthesize realistic SVBRDF parameter maps. We show that MaterialGAN can be used as a powerful material prior in an inverse rendering framework: we optimize in its latent representation to generate material maps that match the appearance of the captured images when rendered. We demonstrate this framework on the task of reconstructing SVBRDFs from images captured under flash illumination using a hand-held mobile phone. Our method succeeds in producing plausible material maps that accurately reproduce the target images, and outperforms previous state-of-the-art material capture methods in evaluations on both synthetic and real data. Furthermore, our GAN-based latent space allows for high-level semantic material editing operations such as generating material variations and material morphing.
