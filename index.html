@@ -118,12 +118,12 @@
 				<i>ACM Transactions on Graphics (SIGGRAPH Asia 2020), 2020</i>
 				<br>
 				[<a href="javascript:;" onclick="myFun('abs_2020TOG');">abstract</a>]
-				[<a href="webpage/pdf/2020TOG.pdf" target="_blank">paper</a>]
-				[<a href="webpage/suppl/2020TOG/index.html" target="_blank">suppl</a>]
+				[<a href="https://github.com/tflsguoyu/materialgan_paper/blob/master/materialgan.pdf" target="_blank">paper</a>]
+				[<a href="https://github.com/tflsguoyu/materialgan" target="_blank">project page (including code)</a>]
+<!-- 				[<a href="webpage/suppl/2020TOG/index.html" target="_blank">suppl</a>]
 				[<a href="https://youtu.be/fD6CTb1DlbE" target="_blank">fastforward</a>]
 				[<a href="https://youtu.be/CrAoVsJf0Zw" target="_blank">presentation</a>]
-				[<a href="webpage/pdf/2020TOG_main.pptx" target="_blank">slides</a>]
-				[<a href="https://github.com/tflsguoyu/materialgan" target="_blank">code</a>]
+				[<a href="webpage/pdf/2020TOG_main.pptx" target="_blank">slides</a>] -->
 			</p>	
 			<div id="abs_2020TOG" class="abs2" style="display:none;">
 				We address the problem of reconstructing spatially-varying BRDFs from a small set of image measurements. This is a fundamentally under-constrained problem, and previous work has relied on using various regularization priors or on capturing many images to produce plausible results. In this work, we present MaterialGAN, a deep generative convolutional network based on StyleGAN2, trained to synthesize realistic SVBRDF parameter maps. We show that MaterialGAN can be used as a powerful material prior in an inverse rendering framework: we optimize in its latent representation to generate material maps that match the appearance of the captured images when rendered. We demonstrate this framework on the task of reconstructing SVBRDFs from images captured under flash illumination using a hand-held mobile phone. Our method succeeds in producing plausible material maps that accurately reproduce the target images, and outperforms previous state-of-the-art material capture methods in evaluations on both synthetic and real data. Furthermore, our GAN-based latent space allows for high-level semantic material editing operations such as generating material variations and material morphing.
@@ -141,9 +141,7 @@
 				<br>
 				[<a href="javascript:;" onclick="myFun('abs_2020CGF');">abstract</a>]
 				[<a href="https://github.com/tflsguoyu/proceduralmat_paper/blob/master/proceduralmat.pdf" target="_blank">paper</a>]
-				[<a href="https://tflsguoyu.github.io/proceduralmat_suppl/" target="_blank">suppl</a>]
-				[<a href="https://github.com/tflsguoyu/proceduralmat/" target="_blank">code</a>]				
-				[<a href="https://github.com/tflsguoyu/proceduralmat_suppl/" target="_blank">others</a>]
+				[<a href="https://github.com/tflsguoyu/proceduralmat/" target="_blank">project page (including code)</a>]	
 			</p>	
 			<div id="abs_2020CGF" class="abs2" style="display:none;">
 				Procedural material models have been gaining traction in many applications thanks to their flexibility, compactness, and easy editability. In this paper, we explore the inverse rendering problem of procedural material parameter estimation from photographs using a Bayesian framework. We use summary functions for comparing unregistered images of a material under known lighting, and we explore both hand-designed and neural summary functions. In addition to estimating the parameters by optimization, we introduce a Bayesian inference approach using Hamiltonian Monte Carlo to sample the space of plausible material parameters, providing additional insight into the structure of the solution space. To demonstrate the effectiveness of our techniques, we fit procedural models of a range of materials---wall plaster, leather, wood, anisotropic brushed metals and metallic paints---to both synthetic and real target images.
@@ -162,9 +160,7 @@
 				<br>
 				[<a href="javascript:;" onclick="myFun('abs_2018TOG');">abstract</a>]
 				[<a href="https://github.com/tflsguoyu/layeredbsdf_paper/blob/master/layeredbsdf.pdf" target="_blank">paper</a>]
-				[<a href="https://tflsguoyu.github.io/layeredbsdf_suppl/" target="_blank">suppl</a>]
-				[<a href="https://github.com/tflsguoyu/layeredbsdf/" target="_blank">code</a>]
-				[<a href="https://github.com/tflsguoyu/layeredbsdf_suppl/" target="_blank">others</a>]
+				[<a href="https://github.com/tflsguoyu/layeredbsdf/" target="_blank">project page (including code)</a>]
 			</p>	
 			<div id="abs_2018TOG" class="abs2" style="display:none;">
 				Real-world materials are often layered: metallic paints, biological tissues, and many more. Variation in the interface and volumetric scattering properties of the layers leads to a rich diversity of material appearances from anisotropic highlights to complex textures and relief patterns. However, simulating light-layer interactions is a challenging problem. Past analytical or numerical solutions either introduce several approximations and limitations, or rely on expensive operations on discretized BSDFs, preventing the ability to freely vary the layer properties spatially. We introduce a new unbiased layered BSDF model based on Monte Carlo simulation, whose only assumption is the layer assumption itself. Our novel position-free path formulation is fundamentally more powerful at constructing light transport paths than generic light transport algorithms applied to the special case of flat layers, since it is based on a product of solid angle instead of area measures, so does not contain the high-variance geometry terms needed in the standard formulation. We introduce two techniques for sampling the position-free path integral, a forward path tracer with next-event estimation and a full bidirectional estimator. We show a number of examples, featuring multiple layers with surface and volumetric scattering, surface and phase function anisotropy, and spatial variation in all parameters.
