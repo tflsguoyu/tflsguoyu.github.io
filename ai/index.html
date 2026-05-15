@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Yu Guo - interactive personal homepage inside a computer graphics research study."
+    />
+    <title>Yu Guo | Interactive Research Room</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="room-page" aria-label="Yu Guo interactive research room">
+      <section class="room-canvas" aria-label="Interactive study room image">
+        <img class="room-image" src="assets/study-room-homepage-v2.png" alt="A computer graphics researcher's study room" />
+
+        <button class="hotspot map-hotspot" type="button" data-card="path" aria-label="Education, internships, and work path"></button>
+        <button class="hotspot note-hotspot" type="button" data-card="contact" aria-label="Contact and external links"></button>
+        <button class="hotspot desk-hotspot broad-hotspot" type="button" data-card="materialgan" aria-label="MaterialGAN - wooden desktop"></button>
+        <button class="hotspot helmet-hotspot" type="button" data-card="layered-bsdf" aria-label="Layered BSDF - cyber helmet"></button>
+        <button class="hotspot wallpaper-hotspot" type="button" data-card="bayesian" aria-label="Bayesian materials - textured wallpaper"></button>
+        <button class="hotspot bust-hotspot" type="button" data-card="faces" aria-label="3D faces vs 2D faces - bust"></button>
+        <button class="hotspot glasses-hotspot" type="button" data-card="tryon" aria-label="Virtual try-on - blue-light glasses"></button>
+        <button class="hotspot curtain-hotspot" type="button" data-card="fabric" aria-label="Woven fabric capture - curtains"></button>
+        <button class="hotspot lamp-hotspot" type="button" data-card="beyond-mie" aria-label="Beyond Mie Theory - frosted glass lamp"></button>
+        <button class="hotspot print-hotspot" type="button" data-card="bigs" aria-label="BiGS - 3D printed ornament"></button>
+        <button class="hotspot squishy-hotspot" type="button" data-card="deformable" aria-label="Textureless deformable object - squishy toy"></button>
+        <button class="hotspot monitor-hotspot" type="button" data-card="video-editing" aria-label="Physically based video editing - monitor"></button>
+        <button class="hotspot trophy-hotspot" type="button" data-card="epbr" aria-label="ePBR - glass trophy"></button>
+        <button class="hotspot frame-hotspot" type="button" data-card="sirr" aria-label="SIRR-LMM - reflective frame glass"></button>
+        <button class="hotspot figure-hotspot" type="button" data-card="grain-sand" aria-label="Seeing a 3D world in a grain of sand - figure"></button>
+      </section>
+    </main>
+
+    <div class="modal" data-modal hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" type="button" data-close-modal aria-label="Close">&times;</button>
+        <p class="kicker" data-modal-kicker></p>
+        <h1 id="modal-title" data-modal-title></h1>
+        <div class="modal-body" data-modal-body></div>
+      </article>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

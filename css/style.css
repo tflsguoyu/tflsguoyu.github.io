@@ -44,6 +44,30 @@ a:hover {
 	text-decoration: underline;
 }
 
+.ai_home_button {
+	position: fixed;
+	top: 18px;
+	right: 22px;
+	z-index: 1000;
+	display: grid;
+	width: 46px;
+	height: 46px;
+	place-items: center;
+	border: 1px solid #DDD;
+	border-radius: 6px;
+	background: #FFFFFF;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+	color: #543;
+	font: bold 1.4em Georgia,sans-serif;
+	text-decoration: none;
+}
+
+.ai_home_button:hover {
+	border-color: #C40;
+	color: #C40;
+	text-decoration: none;
+}
+
 img.bordered {
 	background-color: #FFF;
 	border: 1px solid #DDD;
