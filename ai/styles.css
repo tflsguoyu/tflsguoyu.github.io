@@ -72,8 +72,15 @@ a {
   height: 100%;
   object-fit: cover;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   mix-blend-mode: screen;
+  transition: opacity 120ms ease;
+}
+
+.mask-highlight.is-active {
+  opacity: 0.46;
+  visibility: visible;
   filter:
     sepia(1)
     saturate(4.2)
@@ -83,11 +90,6 @@ a {
     drop-shadow(0 0 9px rgba(119, 255, 235, 0.86))
     drop-shadow(0 0 20px rgba(61, 222, 214, 0.48))
     drop-shadow(0 0 32px rgba(61, 222, 214, 0.18));
-  transition: opacity 160ms ease;
-}
-
-.mask-highlight.is-active {
-  opacity: 0.46;
 }
 
 .lamp-breath {

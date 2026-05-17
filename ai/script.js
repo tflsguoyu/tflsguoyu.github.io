@@ -215,12 +215,12 @@ const maskHotspots = [
   highlight: null,
 }));
 
-const loadedMasks = new Map();
-const MASK_THRESHOLD = 127;
+const HIT_MAP_URL = "assets/hit-map.png";
 let activeMaskCard = null;
 let rectHotspotFallback = false;
 let pendingHoverPoint = null;
 let hoverFrame = null;
+let hitMap = null;
 
 function createMaskHighlights() {
   maskHotspots.forEach((entry) => {
@@ -242,7 +242,7 @@ function renderLinks(links = []) {
   return `<div class="link-row">${renderedLinks}</div>`;
 }
 
-function loadMask(entry) {
+function loadHitMap() {
   return new Promise((resolve) => {
     const image = new Image();
     image.onload = () => {
@@ -252,46 +252,18 @@ function loadMask(entry) {
         canvas.height = image.naturalHeight;
         const context = canvas.getContext("2d", { willReadFrequently: true });
         context.drawImage(image, 0, 0);
-        const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
-        const data = new Uint8Array(canvas.width * canvas.height);
-        const bounds = {
-          minX: canvas.width,
-          minY: canvas.height,
-          maxX: -1,
-          maxY: -1,
-        };
-
-        for (let i = 0, j = 0; i < data.length; i += 1, j += 4) {
-          const value = Math.max(pixels[j], pixels[j + 1], pixels[j + 2]);
-          if (value <= MASK_THRESHOLD) continue;
-
-          const x = i % canvas.width;
-          const y = Math.floor(i / canvas.width);
-          data[i] = 1;
-          if (x < bounds.minX) bounds.minX = x;
-          if (y < bounds.minY) bounds.minY = y;
-          if (x > bounds.maxX) bounds.maxX = x;
-          if (y > bounds.maxY) bounds.maxY = y;
-        }
-
-        if (bounds.maxX < 0) {
-          resolve(false);
-          return;
-        }
-
-        loadedMasks.set(entry.card, {
+        hitMap = {
           width: canvas.width,
           height: canvas.height,
-          data,
-          bounds,
-        });
+          data: context.getImageData(0, 0, canvas.width, canvas.height).data,
+        };
         resolve(true);
       } catch {
         resolve(false);
       }
     };
     image.onerror = () => resolve(false);
-    image.src = entry.mask;
+    image.src = HIT_MAP_URL;
   });
 }
 
@@ -311,17 +283,13 @@ function getCanvasPoint(event) {
 
 function hitTestMask(event) {
   const point = getCanvasPoint(event);
-  if (!point) return null;
+  if (!point || !hitMap) return null;
 
-  for (const entry of maskHotspots) {
-    const mask = loadedMasks.get(entry.card);
-    if (!mask) continue;
-    const px = Math.min(mask.width - 1, Math.max(0, Math.floor(point.x * mask.width)));
-    const py = Math.min(mask.height - 1, Math.max(0, Math.floor(point.y * mask.height)));
-    const { bounds } = mask;
-    if (px < bounds.minX || px > bounds.maxX || py < bounds.minY || py > bounds.maxY) continue;
-    if (mask.data[py * mask.width + px]) return { ...entry, point };
-  }
+  const px = Math.min(hitMap.width - 1, Math.max(0, Math.floor(point.x * hitMap.width)));
+  const py = Math.min(hitMap.height - 1, Math.max(0, Math.floor(point.y * hitMap.height)));
+  const index = hitMap.data[(py * hitMap.width + px) * 4];
+  const entry = maskHotspots[index - 1];
+  if (entry) return { ...entry, point };
 
   return null;
 }
@@ -427,8 +395,8 @@ maskHotspots.forEach((entry) => {
 });
 
 createMaskHighlights();
-Promise.all(maskHotspots.map(loadMask)).then((results) => {
-  if (results.some((loaded) => !loaded)) {
+loadHitMap().then((loaded) => {
+  if (!loaded) {
     enableRectHotspotFallback();
   }
 });
