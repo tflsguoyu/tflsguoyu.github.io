@@ -80,9 +80,9 @@ a {
     hue-rotate(345deg)
     brightness(1.18)
     drop-shadow(0 0 4px rgba(246, 255, 252, 1))
-    drop-shadow(0 0 12px rgba(119, 255, 235, 0.98))
-    drop-shadow(0 0 28px rgba(61, 222, 214, 0.72))
-    drop-shadow(0 0 54px rgba(61, 222, 214, 0.34));
+    drop-shadow(0 0 9px rgba(119, 255, 235, 0.86))
+    drop-shadow(0 0 20px rgba(61, 222, 214, 0.48))
+    drop-shadow(0 0 32px rgba(61, 222, 214, 0.18));
   transition: opacity 160ms ease;
 }
 
