@@ -52,6 +52,87 @@ a {
   user-select: none;
 }
 
+.living-room-effects,
+.living-room-effects > * {
+  position: absolute;
+  pointer-events: none;
+}
+
+.living-room-effects {
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.mask-highlight {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter:
+    sepia(1)
+    saturate(4.2)
+    hue-rotate(345deg)
+    brightness(1.18)
+    drop-shadow(0 0 4px rgba(246, 255, 252, 1))
+    drop-shadow(0 0 12px rgba(119, 255, 235, 0.98))
+    drop-shadow(0 0 28px rgba(61, 222, 214, 0.72))
+    drop-shadow(0 0 54px rgba(61, 222, 214, 0.34));
+  transition: opacity 160ms ease;
+}
+
+.mask-highlight.is-active {
+  opacity: 0.46;
+}
+
+.lamp-breath {
+  left: -3%;
+  top: 35%;
+  width: 34%;
+  height: 41%;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 41% 45%, rgba(255, 225, 156, 0.6), rgba(240, 169, 83, 0.2) 35%, transparent 70%);
+  mix-blend-mode: screen;
+  filter: blur(3px);
+  animation: lampBreath 4.2s ease-in-out infinite;
+}
+
+.map-route-glow {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: screen;
+  opacity: 0.26;
+  filter: saturate(1.08) brightness(1.08);
+  animation: routePulse 4.8s ease-in-out infinite;
+}
+
+.map-route-flow {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;
+  opacity: 0.78;
+  background:
+    linear-gradient(105deg, transparent 0 36%, rgba(255, 244, 199, 0.95) 43%, rgba(255, 182, 74, 0.86) 48%, rgba(255, 244, 199, 0.95) 53%, transparent 61%),
+    url("assets/route-alpha.png") center / cover no-repeat;
+  filter: saturate(1.15) brightness(1.18) drop-shadow(0 0 8px rgba(255, 201, 103, 0.52));
+  mask-image: url("assets/route-alpha.png");
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url("assets/route-alpha.png");
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  animation: routeFlow 5.6s ease-in-out infinite;
+}
+
 .hotspot {
   position: absolute;
   z-index: 4;
@@ -60,6 +141,7 @@ a {
   background: transparent;
   color: var(--ink);
   cursor: pointer;
+  pointer-events: none;
   transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
@@ -67,7 +149,19 @@ a {
   z-index: 2;
 }
 
-.hotspot::after {
+.hotspot:focus-visible {
+  border-color: rgba(117, 221, 205, 0.75);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(117, 221, 205, 0.13), rgba(117, 221, 205, 0.03) 58%, transparent 78%);
+  box-shadow: 0 0 0 6px rgba(117, 221, 205, 0.09), 0 0 34px rgba(240, 179, 91, 0.22);
+  outline: none;
+}
+
+.uses-rect-hotspots .hotspot {
+  pointer-events: auto;
+}
+
+.uses-rect-hotspots .hotspot::after {
   content: attr(aria-label);
   position: absolute;
   left: 50%;
@@ -88,18 +182,38 @@ a {
   transition: opacity 180ms ease, transform 180ms ease;
 }
 
-.hotspot:hover,
-.hotspot:focus-visible {
+.uses-rect-hotspots .hotspot:hover {
   border-color: rgba(117, 221, 205, 0.75);
-  background: rgba(117, 221, 205, 0.08);
-  box-shadow: 0 0 0 6px rgba(117, 221, 205, 0.11), 0 0 34px rgba(240, 179, 91, 0.22);
-  outline: none;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(117, 221, 205, 0.13), rgba(117, 221, 205, 0.03) 58%, transparent 78%);
+  box-shadow: 0 0 0 6px rgba(117, 221, 205, 0.09), 0 0 34px rgba(240, 179, 91, 0.22);
 }
 
-.hotspot:hover::after,
-.hotspot:focus-visible::after {
+.uses-rect-hotspots .hotspot:hover::after,
+.uses-rect-hotspots .hotspot:focus-visible::after {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+.room-canvas.is-mask-hover {
+  cursor: pointer;
+}
+
+.mask-tooltip {
+  position: absolute;
+  z-index: 12;
+  max-width: 230px;
+  transform: translate(-50%, calc(-100% - 12px));
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(18, 13, 9, 0.88);
+  color: var(--ink);
+  font-size: 0.78rem;
+  line-height: 1.2;
+  pointer-events: none;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
 }
 
 .map-hotspot {
@@ -114,6 +228,7 @@ a {
   top: 25%;
   width: 8%;
   height: 13%;
+  z-index: 8;
 }
 
 .desk-hotspot {
@@ -208,6 +323,52 @@ a {
   height: 24%;
 }
 
+@keyframes lampBreath {
+  0%,
+  100% {
+    opacity: 0.52;
+    transform: scale(0.98);
+  }
+
+  50% {
+    opacity: 0.82;
+    transform: scale(1.035);
+  }
+}
+
+@keyframes routePulse {
+  0%,
+  100% {
+    opacity: 0.18;
+  }
+
+  50% {
+    opacity: 0.36;
+  }
+}
+
+@keyframes routeFlow {
+  0%,
+  16% {
+    background-position: -82% 0, center;
+    opacity: 0;
+  }
+
+  28% {
+    opacity: 0.78;
+  }
+
+  74% {
+    opacity: 0.78;
+  }
+
+  88%,
+  100% {
+    background-position: 92% 0, center;
+    opacity: 0;
+  }
+}
+
 .modal[hidden] {
   display: none;
 }
@@ -295,31 +456,6 @@ a {
   color: var(--accent);
 }
 
-.paper-list {
-  display: grid;
-  gap: 12px;
-  margin-top: 18px;
-}
-
-.paper-card {
-  padding: 14px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.055);
-}
-
-.paper-card strong {
-  display: block;
-  margin-bottom: 6px;
-  color: var(--ink);
-}
-
-.paper-card span {
-  display: block;
-  color: var(--muted);
-  font-size: 0.92rem;
-}
-
 .link-row {
   display: flex;
   flex-wrap: wrap;
@@ -369,5 +505,13 @@ a {
 
   .modal {
     position: fixed;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lamp-breath,
+  .map-route-glow,
+  .map-route-flow {
+    animation: none;
   }
 }

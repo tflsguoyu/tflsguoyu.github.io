@@ -186,7 +186,51 @@ const modal = document.querySelector("[data-modal]");
 const modalKicker = document.querySelector("[data-modal-kicker]");
 const modalTitle = document.querySelector("[data-modal-title]");
 const modalBody = document.querySelector("[data-modal-body]");
+const roomCanvas = document.querySelector(".room-canvas");
+const maskTooltip = document.querySelector("[data-mask-tooltip]");
 let lastFocusedElement = null;
+
+const maskHotspots = [
+  ["contact", "Contact and external links"],
+  ["sirr", "SIRR-LMM - reflective frame glass"],
+  ["faces", "3D faces vs 2D faces - bust"],
+  ["beyond-mie", "Beyond Mie Theory - frosted glass lamp"],
+  ["bigs", "BiGS - 3D printed ornament"],
+  ["tryon", "Virtual try-on - blue-light glasses"],
+  ["deformable", "Textureless deformable object - squishy toy"],
+  ["video-editing", "Physically based video editing - monitor"],
+  ["epbr", "ePBR - glass trophy"],
+  ["grain-sand", "Seeing a 3D world in a grain of sand - figure"],
+  ["layered-bsdf", "Layered BSDF - cyber helmet"],
+  ["fabric", "Woven fabric capture - curtains"],
+  ["path", "Education, internships, and work path"],
+  ["bayesian", "Bayesian materials - textured wallpaper"],
+  ["materialgan", "MaterialGAN - wooden desktop"],
+].map(([card, label, mask]) => ({
+  card,
+  label,
+  mask: mask || `assets/masks/${card}.png`,
+  highlightMask: `assets/highlights/${card}.png`,
+  button: document.querySelector(`[data-card="${card}"]`),
+  highlight: null,
+}));
+
+const loadedMasks = new Map();
+const MASK_THRESHOLD = 127;
+let activeMaskCard = null;
+let rectHotspotFallback = false;
+
+function createMaskHighlights() {
+  maskHotspots.forEach((entry) => {
+    const image = document.createElement("img");
+    image.className = "mask-highlight";
+    image.dataset.maskHighlight = entry.card;
+    image.src = entry.highlightMask;
+    image.alt = "";
+    roomCanvas.insertBefore(image, maskTooltip);
+    entry.highlight = image;
+  });
+}
 
 function renderLinks(links = []) {
   if (!links.length) return "";
@@ -196,11 +240,87 @@ function renderLinks(links = []) {
   return `<div class="link-row">${renderedLinks}</div>`;
 }
 
+function loadMask(entry) {
+  return new Promise((resolve) => {
+    const image = new Image();
+    image.onload = () => {
+      try {
+        const canvas = document.createElement("canvas");
+        canvas.width = image.naturalWidth;
+        canvas.height = image.naturalHeight;
+        const context = canvas.getContext("2d", { willReadFrequently: true });
+        context.drawImage(image, 0, 0);
+        loadedMasks.set(entry.card, {
+          width: canvas.width,
+          height: canvas.height,
+          data: context.getImageData(0, 0, canvas.width, canvas.height).data,
+        });
+        resolve(true);
+      } catch {
+        resolve(false);
+      }
+    };
+    image.onerror = () => resolve(false);
+    image.src = entry.mask;
+  });
+}
+
+function enableRectHotspotFallback() {
+  rectHotspotFallback = true;
+  roomCanvas.classList.add("uses-rect-hotspots");
+  setMaskHover(null);
+}
+
+function getCanvasPoint(event) {
+  const rect = roomCanvas.getBoundingClientRect();
+  const x = (event.clientX - rect.left) / rect.width;
+  const y = (event.clientY - rect.top) / rect.height;
+  if (x < 0 || x > 1 || y < 0 || y > 1) return null;
+  return { x, y };
+}
+
+function hitTestMask(event) {
+  const point = getCanvasPoint(event);
+  if (!point) return null;
+
+  for (const entry of maskHotspots) {
+    const mask = loadedMasks.get(entry.card);
+    if (!mask) continue;
+    const px = Math.min(mask.width - 1, Math.max(0, Math.floor(point.x * mask.width)));
+    const py = Math.min(mask.height - 1, Math.max(0, Math.floor(point.y * mask.height)));
+    const offset = (py * mask.width + px) * 4;
+    const value = Math.max(mask.data[offset], mask.data[offset + 1], mask.data[offset + 2]);
+    if (value > MASK_THRESHOLD) return { ...entry, point };
+  }
+
+  return null;
+}
+
+function setMaskHover(hit) {
+  const nextCard = hit?.card || null;
+  if (activeMaskCard !== nextCard) {
+    maskHotspots.forEach((entry) => entry.highlight?.classList.remove("is-active"));
+    if (hit?.highlight) hit.highlight.classList.add("is-active");
+    activeMaskCard = nextCard;
+  }
+
+  roomCanvas.classList.toggle("is-mask-hover", Boolean(hit));
+  if (!hit) {
+    maskTooltip.hidden = true;
+    return;
+  }
+
+  maskTooltip.textContent = hit.label;
+  maskTooltip.style.left = `${hit.point.x * 100}%`;
+  maskTooltip.style.top = `${hit.point.y * 100}%`;
+  maskTooltip.hidden = false;
+}
+
 function openCard(name, trigger) {
   const card = paperCards[name];
   if (!card) return;
 
-  lastFocusedElement = trigger || document.activeElement;
+  lastFocusedElement = trigger || null;
   modalKicker.textContent = card.kicker;
   modalTitle.textContent = card.title;
   modalBody.innerHTML = `
@@ -217,16 +337,11 @@ function openCard(name, trigger) {
 function closeCard() {
   modal.hidden = true;
   document.body.style.overflow = "";
+  setMaskHover(null);
   if (lastFocusedElement) lastFocusedElement.focus();
 }
 
 document.addEventListener("click", (event) => {
-  const hotspot = event.target.closest("[data-card]");
-  if (hotspot) {
-    openCard(hotspot.dataset.card, hotspot);
-    return;
-  }
-
   if (event.target.closest("[data-close-modal]")) {
     closeCard();
   }
@@ -235,5 +350,37 @@ document.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !modal.hidden) {
     closeCard();
+  }
+});
+
+roomCanvas.addEventListener("mousemove", (event) => {
+  if (!modal.hidden) return;
+  setMaskHover(hitTestMask(event));
+});
+
+roomCanvas.addEventListener("mouseleave", () => {
+  setMaskHover(null);
+});
+
+roomCanvas.addEventListener("click", (event) => {
+  if (rectHotspotFallback) return;
+  if (!modal.hidden) return;
+  const hit = hitTestMask(event);
+  if (hit) openCard(hit.card);
+});
+
+maskHotspots.forEach((entry) => {
+  entry.button?.addEventListener("click", (event) => {
+    if (!rectHotspotFallback) return;
+    event.stopPropagation();
+    if (!modal.hidden) return;
+    openCard(entry.card, entry.button);
+  });
+});
+
+createMaskHighlights();
+Promise.all(maskHotspots.map(loadMask)).then((results) => {
+  if (results.some((loaded) => !loaded)) {
+    enableRectHotspotFallback();
   }
 });
