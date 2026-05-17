@@ -219,6 +219,8 @@ const loadedMasks = new Map();
 const MASK_THRESHOLD = 127;
 let activeMaskCard = null;
 let rectHotspotFallback = false;
+let pendingHoverPoint = null;
+let hoverFrame = null;
 
 function createMaskHighlights() {
   maskHotspots.forEach((entry) => {
@@ -250,10 +252,38 @@ function loadMask(entry) {
         canvas.height = image.naturalHeight;
         const context = canvas.getContext("2d", { willReadFrequently: true });
         context.drawImage(image, 0, 0);
+        const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
+        const data = new Uint8Array(canvas.width * canvas.height);
+        const bounds = {
+          minX: canvas.width,
+          minY: canvas.height,
+          maxX: -1,
+          maxY: -1,
+        };
+
+        for (let i = 0, j = 0; i < data.length; i += 1, j += 4) {
+          const value = Math.max(pixels[j], pixels[j + 1], pixels[j + 2]);
+          if (value <= MASK_THRESHOLD) continue;
+
+          const x = i % canvas.width;
+          const y = Math.floor(i / canvas.width);
+          data[i] = 1;
+          if (x < bounds.minX) bounds.minX = x;
+          if (y < bounds.minY) bounds.minY = y;
+          if (x > bounds.maxX) bounds.maxX = x;
+          if (y > bounds.maxY) bounds.maxY = y;
+        }
+
+        if (bounds.maxX < 0) {
+          resolve(false);
+          return;
+        }
+
         loadedMasks.set(entry.card, {
           width: canvas.width,
           height: canvas.height,
-          data: context.getImageData(0, 0, canvas.width, canvas.height).data,
+          data,
+          bounds,
         });
         resolve(true);
       } catch {
@@ -288,12 +318,27 @@ function hitTestMask(event) {
     if (!mask) continue;
     const px = Math.min(mask.width - 1, Math.max(0, Math.floor(point.x * mask.width)));
     const py = Math.min(mask.height - 1, Math.max(0, Math.floor(point.y * mask.height)));
-    const offset = (py * mask.width + px) * 4;
-    const value = Math.max(mask.data[offset], mask.data[offset + 1], mask.data[offset + 2]);
-    if (value > MASK_THRESHOLD) return { ...entry, point };
+    const { bounds } = mask;
+    if (px < bounds.minX || px > bounds.maxX || py < bounds.minY || py > bounds.maxY) continue;
+    if (mask.data[py * mask.width + px]) return { ...entry, point };
   }
 
   return null;
+}
+
+function scheduleMaskHover(event) {
+  pendingHoverPoint = {
+    clientX: event.clientX,
+    clientY: event.clientY,
+  };
+
+  if (hoverFrame) return;
+  hoverFrame = requestAnimationFrame(() => {
+    hoverFrame = null;
+    if (!pendingHoverPoint || !modal.hidden) return;
+    setMaskHover(hitTestMask(pendingHoverPoint));
+    pendingHoverPoint = null;
+  });
 }
 
 function setMaskHover(hit) {
@@ -355,10 +400,13 @@ document.addEventListener("keydown", (event) => {
 
 roomCanvas.addEventListener("mousemove", (event) => {
   if (!modal.hidden) return;
-  setMaskHover(hitTestMask(event));
+  scheduleMaskHover(event);
 });
 
 roomCanvas.addEventListener("mouseleave", () => {
+  if (hoverFrame) cancelAnimationFrame(hoverFrame);
+  hoverFrame = null;
+  pendingHoverPoint = null;
   setMaskHover(null);
 });
 
