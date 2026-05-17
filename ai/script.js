@@ -186,6 +186,7 @@ const modal = document.querySelector("[data-modal]");
 const modalKicker = document.querySelector("[data-modal-kicker]");
 const modalTitle = document.querySelector("[data-modal-title]");
 const modalBody = document.querySelector("[data-modal-body]");
+const roomPage = document.querySelector(".room-page");
 const roomCanvas = document.querySelector(".room-canvas");
 const maskTooltip = document.querySelector("[data-mask-tooltip]");
 let lastFocusedElement = null;
@@ -309,6 +310,15 @@ function scheduleMaskHover(event) {
   });
 }
 
+function centerMobileRoomView() {
+  const isMobilePortrait = window.matchMedia("(max-width: 720px) and (orientation: portrait)").matches;
+  if (!isMobilePortrait || !roomPage || !roomCanvas) return;
+
+  const maxScroll = roomCanvas.scrollWidth - roomPage.clientWidth;
+  if (maxScroll <= 0) return;
+  roomPage.scrollLeft = maxScroll * 0.38;
+}
+
 function setMaskHover(hit) {
   const nextCard = hit?.card || null;
   if (activeMaskCard !== nextCard) {
@@ -400,3 +410,4 @@ loadHitMap().then((loaded) => {
     enableRectHotspotFallback();
   }
 });
+window.addEventListener("load", centerMobileRoomView, { once: true });
