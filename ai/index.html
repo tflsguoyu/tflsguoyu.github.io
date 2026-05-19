@@ -11,12 +11,27 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <section class="intro-screen" data-intro-screen aria-label="Arrival gate">
+      <div class="intro-stage">
+        <canvas class="intro-canvas" data-intro-canvas aria-hidden="true"></canvas>
+        <div class="intro-actions">
+          <button class="intro-enter" type="button" data-enter-site>
+            <span data-enter-label>Welcome to visit Yu Guo</span>
+            <svg class="intro-enter-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <main class="room-page" aria-label="Yu Guo interactive research room">
       <section class="room-canvas" aria-label="Interactive study room image">
         <img class="room-image" src="assets/study-room-homepage-v3.png" alt="A computer graphics researcher's study room" />
 
         <button class="hotspot map-hotspot" type="button" data-card="path" aria-label="Education, internships, and work path"></button>
         <button class="hotspot note-hotspot" type="button" data-card="contact" aria-label="Contact and external links"></button>
+        <button class="hotspot person-hotspot" type="button" data-card="profile" aria-label="Yu Guo profile"></button>
         <button class="hotspot desk-hotspot broad-hotspot" type="button" data-card="materialgan" aria-label="MaterialGAN - wooden desktop"></button>
         <button class="hotspot helmet-hotspot" type="button" data-card="layered-bsdf" aria-label="Layered BSDF - cyber helmet"></button>
         <button class="hotspot wallpaper-hotspot" type="button" data-card="bayesian" aria-label="Bayesian materials - textured wallpaper"></button>
@@ -39,12 +54,12 @@
       <div class="modal-backdrop" data-close-modal></div>
       <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <button class="modal-close" type="button" data-close-modal aria-label="Close">&times;</button>
-        <p class="kicker" data-modal-kicker></p>
         <h1 id="modal-title" data-modal-title></h1>
         <div class="modal-body" data-modal-body></div>
       </article>
     </div>
 
+    <script type="module" src="intro.js?v=production-clean-1"></script>
     <script src="script.js"></script>
   </body>
 </html>

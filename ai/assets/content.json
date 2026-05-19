@@ -1,0 +1,350 @@
+{
+  "profile": {
+    "object": "Person at the Desk",
+    "hover": "Self Intro",
+    "title": "Yu Guo",
+    "meta": "Computer Graphics Researcher",
+    "content": [
+      "Recently, my work has centered on adapting and fine-tuning large generative foundation models for creative workflows, including diffusion models, video generation models, and multimodal systems.",
+      "I am especially interested in combining graphics priors with modern GenAI models to make visual assets more controllable, editable, relightable, and physically consistent across images, videos, materials, and 3D scenes."
+    ],
+    "links": [
+      {
+        "label": "Email",
+        "href": "mailto:tflsguoyu@gmail.com"
+      },
+      {
+        "label": "Google Scholar",
+        "href": "https://scholar.google.com/citations?user=V2BnBGIAAAAJ&hl=en"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/tflsguoyu"
+      }
+    ]
+  },
+  "contact": {
+    "object": "Pinned Note",
+    "hover": "Contact and external links",
+    "title": "Contact",
+    "meta": "",
+    "content": [
+      "A small note on the wall for the practical exits from the room."
+    ],
+    "links": [
+      {
+        "label": "Email",
+        "href": "mailto:tflsguoyu@gmail.com"
+      },
+      {
+        "label": "Google Scholar",
+        "href": "https://scholar.google.com/citations?user=V2BnBGIAAAAJ&hl=en"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/tflsguoyu"
+      }
+    ]
+  },
+  "sirr": {
+    "object": "Reflective Photo Frame",
+    "hover": "SIRR-LMM - reflective frame glass",
+    "title": "SIRR-LMM: Single-image Reflection Removal via Large Multimodal Model",
+    "meta": "Yu Guo, Zhiqiang Lao, Xiyun Song, Yubin Zhou, Heather Yu. WACV Workshops, 2026.",
+    "content": [
+      "The reflective frame glass opens SIRR-LMM, a single-image reflection removal approach using synthetic reflection scenarios and a large multimodal model."
+    ],
+    "links": [
+      {
+        "label": "CVF",
+        "href": "https://openaccess.thecvf.com/content/WACV2026W/GAIP/html/Guo_SIRR-LMM_Single-image_reflection_removal_via_Large_Multimodal_Model_WACVW_2026_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "href": "https://arxiv.org/abs/2601.07209"
+      },
+      {
+        "label": "Scholar",
+        "href": "https://scholar.google.com/citations?user=V2BnBGIAAAAJ&hl=en"
+      }
+    ]
+  },
+  "faces": {
+    "object": "Bust Sculpture",
+    "hover": "3D faces vs 2D faces - bust",
+    "title": "3D Faces are Recognized More Accurately and Faster than 2D Faces, but with Similar Inversion Effects",
+    "meta": "Derric Eng, Belle Yick, Yu Guo, Hong Xu, Miriam Reiner, TJ Cham, SH Chen. Vision Research, 2017.",
+    "content": [
+      "The bust sculpture points to earlier vision work comparing recognition performance for 3D and 2D faces under upright and inverted presentation."
+    ],
+    "links": [
+      {
+        "label": "Scholar",
+        "href": "https://scholar.google.com/citations?user=V2BnBGIAAAAJ&hl=en"
+      }
+    ]
+  },
+  "beyond-mie": {
+    "object": "Frosted Glass Lamp",
+    "hover": "Beyond Mie Theory - frosted glass lamp",
+    "title": "Beyond Mie Theory: Systematic Computation of Bulk Scattering Parameters based on Microphysical Wave Optics",
+    "meta": "Yu Guo, Adrian Jarabo, Shuang Zhao. ACM Transactions on Graphics, 2021.",
+    "content": [
+      "The glowing frosted lamp opens the scattering work: computing bulk scattering parameters beyond the far-field assumptions of Lorenz-Mie theory."
+    ],
+    "links": [
+      {
+        "label": "Paper",
+        "href": "https://github.com/tflsguoyu/beyondmie_paper/blob/master/beyondmie.pdf"
+      },
+      {
+        "label": "Project and code",
+        "href": "https://github.com/tflsguoyu/beyondmie"
+      },
+      {
+        "label": "Scholar",
+        "href": "https://scholar.google.com/citations?user=V2BnBGIAAAAJ&hl=en"
+      }
+    ]
+  },
+  "bigs": {
+    "object": "3D Printed Ornament",
+    "hover": "BiGS - 3D printed ornament",
+    "title": "BiGS: Bidirectional Gaussian Primitives for Relightable 3D Gaussian Splatting",
+    "meta": "Relightable 3D Gaussian splatting work listed on Google Scholar.",
+    "content": [
+      "The 3D printed ornament opens BiGS, a relightable 3D Gaussian representation designed for more expressive appearance and lighting control."
+    ],
+    "links": [
+      {
+        "label": "Project",
+        "href": "https://desmondlzy.me/publications/bigs/"
+      },
+      {
+        "label": "arXiv",
+        "href": "https://arxiv.org/abs/2408.13370"
+      },
+      {
+        "label": "Scholar",
+        "href": "https://scholar.google.com/citations?user=V2BnBGIAAAAJ&hl=en"
+      }
+    ]
+  },
+  "tryon": {
+    "object": "Blue-Light Glasses",
+    "hover": "Virtual try-on - blue-light glasses",
+    "title": "A Virtual Try-on System for Prescription Eyeglasses",
+    "meta": "Qian Zhang, Yu Guo, Pierre-Yves Laffont, Tobias Martin, Markus Gross. IEEE Computer Graphics and Applications, 2017.",
+    "content": [
+      "The glasses open a virtual try-on system that models corrective-lens distortion, reflections, and shading for a more realistic mirror-like result."
+    ],
+    "links": [
+      {
+        "label": "Video",
+        "href": "https://youtu.be/_fckwZCzCgc"
+      },
+      {
+        "label": "Scholar",
+        "href": "https://scholar.google.com/citations?user=V2BnBGIAAAAJ&hl=en"
+      }
+    ]
+  },
+  "deformable": {
+    "object": "Squishy Toy",
+    "hover": "Textureless deformable object - squishy toy",
+    "title": "Textureless Deformable Object Tracking with Invisible Markers",
+    "meta": "Textureless deformable tracking work listed on Google Scholar.",
+    "content": [
+      "The squishy toy maps to deformable tracking: estimating motion and deformation for objects that lack visible texture cues."
+    ],
+    "links": [
+      {
+        "label": "Project",
+        "href": "https://fluorescentdot.github.io"
+      },
+      {
+        "label": "Scholar",
+        "href": "https://scholar.google.com/citations?user=V2BnBGIAAAAJ&hl=en"
+      }
+    ]
+  },
+  "video-editing": {
+    "object": "Monitor",
+    "hover": "Physically based video editing - monitor",
+    "title": "Physically Based Video Editing",
+    "meta": "Jean-Charles Bazin, Claudia Pluss, Yu Guo, Tobias Martin, Alec Jacobson, Markus Gross. Computer Graphics Forum, 2016.",
+    "content": [
+      "The monitor opens video editing work that combines image-aware editing with physically based simulation to produce plausible video manipulations."
+    ],
+    "links": [
+      {
+        "label": "Video",
+        "href": "https://youtu.be/bBzmlCU5FEo"
+      },
+      {
+        "label": "Scholar",
+        "href": "https://scholar.google.com/citations?user=V2BnBGIAAAAJ&hl=en"
+      }
+    ]
+  },
+  "epbr": {
+    "object": "Glass Trophy",
+    "hover": "ePBR - glass trophy",
+    "title": "ePBR: Extended PBR Materials in Image Synthesis",
+    "meta": "Yu Guo, Zhiqiang Lao, Xiyun Song, Yubin Zhou, Zongfang Lin, Heather Yu. CVPR Workshops, 2025.",
+    "content": [
+      "The transparent trophy opens ePBR, which extends PBR-style image decomposition with reflection and transmission for materials such as glass and windows."
+    ],
+    "links": [
+      {
+        "label": "CVF",
+        "href": "https://openaccess.thecvf.com/content/CVPR2025W/CV4Metaverse/html/Guo_ePBR_Extended_PBR_Materials_in_Image_Synthesis_CVPRW_2025_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "href": "https://arxiv.org/abs/2504.17062"
+      },
+      {
+        "label": "Scholar",
+        "href": "https://scholar.google.com/citations?user=V2BnBGIAAAAJ&hl=en"
+      }
+    ]
+  },
+  "grain-sand": {
+    "object": "Anime Figure",
+    "hover": "Seeing a 3D world in a grain of sand - figure",
+    "title": "Seeing A 3D World in A Grain of Sand",
+    "meta": "3D reconstruction / perception work listed on Google Scholar.",
+    "content": [
+      "The figurine opens the grain-of-sand project, a newer work on seeing and recovering 3D structure from tiny visual evidence."
+    ],
+    "links": [
+      {
+        "label": "arXiv",
+        "href": "https://arxiv.org/abs/2503.00260"
+      },
+      {
+        "label": "Scholar",
+        "href": "https://scholar.google.com/citations?user=V2BnBGIAAAAJ&hl=en"
+      }
+    ]
+  },
+  "layered-bsdf": {
+    "object": "Cyber Helmet",
+    "hover": "Layered BSDF - cyber helmet",
+    "title": "Position-Free Monte Carlo Simulation for Arbitrary Layered BSDFs",
+    "meta": "Yu Guo, Milos Hasan, Shuang Zhao. ACM Transactions on Graphics, 2018.",
+    "content": [
+      "The helmet maps to layered appearance: an unbiased Monte Carlo model for arbitrary layered BSDFs with surface and volumetric scattering."
+    ],
+    "links": [
+      {
+        "label": "Paper",
+        "href": "https://github.com/tflsguoyu/layeredbsdf_paper/blob/master/layeredbsdf.pdf"
+      },
+      {
+        "label": "Project and code",
+        "href": "https://github.com/tflsguoyu/layeredbsdf/"
+      },
+      {
+        "label": "Scholar",
+        "href": "https://scholar.google.com/citations?user=V2BnBGIAAAAJ&hl=en"
+      }
+    ]
+  },
+  "fabric": {
+    "object": "Study Curtains",
+    "hover": "Woven fabric capture - curtains",
+    "title": "Fiber-Level Woven Fabric Capture from a Single Photo",
+    "meta": "Woven fabric appearance capture work listed on Google Scholar.",
+    "content": [
+      "The semi-translucent curtains map to fabric capture: recovering detailed woven-fiber appearance from limited image input."
+    ],
+    "links": [
+      {
+        "label": "Project",
+        "href": "https://wangningbei.github.io/2022/Fabrics.html"
+      },
+      {
+        "label": "Scholar",
+        "href": "https://scholar.google.com/citations?user=V2BnBGIAAAAJ&hl=en"
+      }
+    ]
+  },
+  "path": {
+    "object": "Wall Map",
+    "hover": "Education, internships, and work path",
+    "title": "Academic Journey",
+    "meta": "",
+    "content": [
+      "The map traces the route behind the room: education, research appointments, internships, and industry research."
+    ],
+    "details": [
+      "Changsha - B.S. in Mathematics, Central South University.",
+      "Beijing / Shenzhen - M.S. in Computer Science, Chinese Academy of Sciences / SIAT.",
+      "Singapore - Research Associate, Nanyang Technological University and BeingThere Centre.",
+      "Irvine - Ph.D. in Computer Science, University of California, Irvine.",
+      "Industry research and internships - Autodesk, Megvii, Adobe, Facebook, and Tencent Pixel Lab."
+    ],
+    "links": [
+      {
+        "label": "Google Scholar",
+        "href": "https://scholar.google.com/citations?user=V2BnBGIAAAAJ&hl=en"
+      },
+      {
+        "label": "UC Irvine",
+        "href": "https://www.uci.edu/"
+      },
+      {
+        "label": "Shuang Zhao",
+        "href": "https://shuangz.com/"
+      }
+    ]
+  },
+  "bayesian": {
+    "object": "Textured Wallpaper",
+    "hover": "Bayesian materials - textured wallpaper",
+    "title": "A Bayesian Inference Framework for Procedural Material Parameter Estimation",
+    "meta": "Yu Guo, Milos Hasan, Lingqi Yan, Shuang Zhao. Computer Graphics Forum, 2020.",
+    "content": [
+      "The patterned wall opens procedural material estimation: fitting editable material models from photographs with optimization and Bayesian inference."
+    ],
+    "links": [
+      {
+        "label": "Paper",
+        "href": "https://github.com/tflsguoyu/proceduralmat_paper/blob/master/proceduralmat.pdf"
+      },
+      {
+        "label": "Project and code",
+        "href": "https://github.com/tflsguoyu/proceduralmat/"
+      },
+      {
+        "label": "Scholar",
+        "href": "https://scholar.google.com/citations?user=V2BnBGIAAAAJ&hl=en"
+      }
+    ]
+  },
+  "materialgan": {
+    "object": "Solid Wood Desktop",
+    "hover": "MaterialGAN - wooden desktop",
+    "title": "MaterialGAN: Reflectance Capture using a Generative SVBRDF Model",
+    "meta": "Yu Guo, Cameron Smith, Milos Hasan, Kalyan Sunkavalli, Shuang Zhao. ACM Transactions on Graphics, 2020.",
+    "content": [
+      "The wooden desktop opens the material-capture work: reconstructing spatially varying BRDFs from limited photographs using a generative SVBRDF prior."
+    ],
+    "links": [
+      {
+        "label": "Paper",
+        "href": "https://github.com/tflsguoyu/materialgan_paper/blob/master/materialgan.pdf"
+      },
+      {
+        "label": "Project and code",
+        "href": "https://github.com/tflsguoyu/svbrdf-diff-renderer"
+      },
+      {
+        "label": "Scholar",
+        "href": "https://scholar.google.com/citations?user=V2BnBGIAAAAJ&hl=en"
+      }
+    ]
+  }
+}
