@@ -7,9 +7,13 @@
       name="description"
       content="Yu Guo - interactive personal homepage inside a computer graphics research study."
     />
+    <meta name="theme-color" content="#101820" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Yu Guo" />
     <title>Yu Guo | Interactive Research Room</title>
     <link rel="icon" type="image/png" sizes="32x32" href="../webpage/image/favicon-32.png" />
     <link rel="apple-touch-icon" href="../webpage/image/apple-touch-icon.png" />
+    <link rel="manifest" href="../manifest.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -63,5 +67,12 @@
 
     <script type="module" src="intro.js?v=production-clean-1"></script>
     <script src="script.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("../service-worker.js");
+        });
+      }
+    </script>
   </body>
 </html>

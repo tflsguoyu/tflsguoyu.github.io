@@ -2,8 +2,13 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="theme-color" content="#101820"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="apple-mobile-web-app-title" content="Yu Guo"/>
 		<link rel="icon" type="image/png" sizes="32x32" href="webpage/image/favicon-32.png"/>
 		<link rel="apple-touch-icon" href="webpage/image/apple-touch-icon.png"/>
+		<link rel="manifest" href="manifest.webmanifest"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen"/>
 		<title>GuoYu's Homepage</title>
 	</head>
@@ -390,6 +395,12 @@
 				} else {
 					x.style.display = "none";
 				}
+			}
+
+			if ("serviceWorker" in navigator) {
+				window.addEventListener("load", function () {
+					navigator.serviceWorker.register("service-worker.js");
+				});
 			}
 		</script>
 
